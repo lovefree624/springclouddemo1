@@ -1,0 +1,14 @@
+server:
+  port: 7071
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: eureka-sumer1
+  client:
+    service-url:
+      defaultZone: http://eurekaserver1.com:8081/eureka/,http://eurekaserver2:8082/eureka/
+
+spring:
+  application:
+    name: eureka-sumer1

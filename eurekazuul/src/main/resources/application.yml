@@ -1,0 +1,24 @@
+server:
+  port: 6061
+
+spring:
+  application:
+    name: eureka-zuul
+
+
+zuul:
+  routes:
+    EUREKA-SUMER2:
+      path: /sumer2/**
+      serverId: EUREKA-SUMER2
+  ignored-services: "*"
+  prefix: /pws
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eurekaserver1.com:8081/eureka/,http://eurekaserver2:8082/eureka/
+  instance:
+    instance-id: eureka-zuul
+    prefer-ip-address: true
