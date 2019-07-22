@@ -7,11 +7,15 @@
  */
 package com.example.eurekasumer.controller;
 
+import com.example.eurekasumer.entity.ResMsg;
 import com.example.eurekasumer.service.SumerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * @author panwensheng
@@ -29,4 +33,10 @@ public class SumerController {
     private String sumer(String name){
        return sumerService.sumer(name);
     }
+
+    @RequestMapping(value = "/getInterface",method = RequestMethod.POST)
+    public List<HashMap<String,Object>> getInterface(){
+       return sumerService.getInterface();
+    }
+
 }

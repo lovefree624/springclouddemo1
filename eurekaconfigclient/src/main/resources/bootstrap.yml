@@ -1,0 +1,15 @@
+server:
+  port: 5051
+
+spring:
+  application:
+    name: application
+  cloud:
+    config:
+      label: master
+      profile: dev
+      uri: http://localhost:6061/
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eurekaserver1.com:8081/eureka/,http://eurekaserver2.com:8082/eureka/

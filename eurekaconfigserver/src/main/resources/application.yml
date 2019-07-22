@@ -1,0 +1,25 @@
+server:
+  port: 6061
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: eureka-config
+  client:
+    service-url:
+      defaultZone: http://eurekaserver1.com:8081/eureka/,http://eurekaserver2.com:8082/eureka/
+
+spring:
+  application:
+    name: eureka-config
+  cloud:
+    config:
+      server:
+        git:
+          #产库地址
+          uri: https://github.com/lovefree624/application-yml.git
+          #用户名
+          username: username
+          password: password
+      # 分支
+      label: master
