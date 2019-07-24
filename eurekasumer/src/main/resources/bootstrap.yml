@@ -1,16 +1,13 @@
-server:
-  port: 5051
-
 
 management:
   endpoints:
     web:
       exposure:
-        include: refresh
+        include: bus-refresh
+  server:
+    port: 7071
 
 spring:
-  application:
-    name: config-client
   cloud:
     config:
       #分支

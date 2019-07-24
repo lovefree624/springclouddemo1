@@ -1,17 +1,17 @@
 package com.example.eurekaconfigclient;
 
+import com.example.eurekaconfigclient.config.Sender;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
-@RefreshScope
 @EnableEurekaClient
 public class EurekaconfigclientApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(EurekaconfigclientApplication.class, args);
     }
-
 }

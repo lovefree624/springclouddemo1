@@ -9,7 +9,7 @@ import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableHystrix
-//@EnableEurekaClient
+@EnableEurekaClient
 public class EurekasumerApplication {
 
     public static void main(String[] args) {

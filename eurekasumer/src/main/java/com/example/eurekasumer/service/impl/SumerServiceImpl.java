@@ -33,30 +33,32 @@ public class SumerServiceImpl implements SumerService {
     private RestTemplate restTemplate;
     String url = "http://eureka-client/getOne";
     String rul = "http://zte-interface-service/queryDetail/byConnectionid";
-@Override
+
+    @Override
     public String sumer(String name) {
-        UriComponents encode = UriComponentsBuilder.fromUriString(url+"?id={name}").build().expand(name).encode();
+        UriComponents encode = UriComponentsBuilder.fromUriString(url + "?id={name}").build().expand(name).encode();
         URI uri = encode.toUri();
         HashMap<String, String> stringStringHashMap = new HashMap<String, String>();
-        stringStringHashMap.put("id",name);
-        return restTemplate.postForObject(url+"?id={id}",null,String.class,stringStringHashMap);
+        stringStringHashMap.put("id", name);
+        return restTemplate.postForObject(uri + "?id={id}", null, String.class, stringStringHashMap);
 //        return restTemplate.postForObject(uri,null,String.class);
 //        return restTemplate.postForObject(url+"?id={1}",null,String.class,name);
 //        return restTemplate.getForObject("http://eureka-client/getOne?id="+name,String.class);
     }
+
     @HystrixCommand(fallbackMethod = "getInterfaceError")
     @Override
-    public List<HashMap<String,Object>> getInterface() {
-        return restTemplate.postForObject(rul+"?conid={1}",null,List.class,1);
+    public List<HashMap<String, Object>> getInterface() {
+        return restTemplate.postForObject(rul + "?conid={1}", null, List.class, 1);
     }
 
-    public List<HashMap<String,Object>> getInterfaceError(){
-        List<HashMap<String,Object>> list = new ArrayList<>();
+    public List<HashMap<String, Object>> getInterfaceError() {
+        List<HashMap<String, Object>> list = new ArrayList<>();
         HashMap<String, Object> params = new HashMap(2);
 //        params.put("connectionid", connid);
 //        hashMaps = agentCallDetailDao.findListBySqlMap(params);
-        params.put("code",400);
-        params.put("msg","测试失败");
+        params.put("code", 400);
+        params.put("msg", "测试失败");
         list.add(params);
         return list;
     }

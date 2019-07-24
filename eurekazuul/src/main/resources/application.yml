@@ -11,6 +11,9 @@ zuul:
     EUREKA-SUMER2:
       path: /sumer2/**
       serverId: EUREKA-SUMER2
+    EUREKA-CLIENT:
+      path: /client/**
+      serverId: EUREKA-CLIENT
   ignored-services: "*"
   prefix: /pws
 

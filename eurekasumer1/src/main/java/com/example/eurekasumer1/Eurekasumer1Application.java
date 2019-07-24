@@ -11,8 +11,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableCircuitBreaker
-@EnableFeignClients(basePackages = {"com.example.eurekasumer1.hystrixservice"})
+@EnableEurekaClient
+@EnableFeignClients
 public class Eurekasumer1Application {
 
     public static void main(String[] args) {
