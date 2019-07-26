@@ -8,8 +8,12 @@
 package com.example.eurekaclient.service.impl;
 
 import com.example.eurekaclient.service.ClientService;
+import com.example.eurekacommon.entity.Person;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author panwensheng
@@ -19,11 +23,27 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ClientServiceImpl implements ClientService {
+
+    @Autowired
+//    PersonMapper personMapper;
+
     @Value("${server.port}")
     private String port;
 
     @Override
     public String getOne(String id) {
         return "接口是："+port+",参数是："+id;
+    }
+
+    @Override
+    public Person getOnePerson(String id) {
+//        return personMapper.getOnePerson(id);
+        return null;
+    }
+
+    @Override
+    public List<Person> getList() {
+//        return personMapper.getList();
+        return null;
     }
 }

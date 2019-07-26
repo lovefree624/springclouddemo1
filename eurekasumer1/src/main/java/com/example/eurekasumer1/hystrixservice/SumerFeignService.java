@@ -24,5 +24,5 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface SumerFeignService {
 
     @RequestMapping(value = "/getOne", method = RequestMethod.POST)
-    String sumer(@RequestParam("id") String id);
+    String sumer(@RequestParam("id") String name);
 }

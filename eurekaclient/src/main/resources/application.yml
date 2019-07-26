@@ -1,11 +1,24 @@
 server:
   port: 9090
-spring:
-  application:
-    name: eureka-client
 
 eureka:
   instance:
     prefer-ip-address: true
     instance-id: eureka-client1
+  client:
+    service-url:
+      defaultZone: http://eurekaserver1.com:8081/eureka/,http://eurekaserver2.com:8082/eureka/
 
+
+spring:
+  application:
+    name: eureka-client
+#  datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql:///ceshi1?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&useSSL=false
+#    username: root
+#    password: admin
+#    type: com.alibaba.druid.pool.DruidDataSource
+#
+#mybatis:
+#  mapper-locations: classpath:/mapper/*.xml

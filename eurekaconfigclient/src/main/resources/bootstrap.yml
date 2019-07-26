@@ -1,22 +1,22 @@
 server:
   port: 5051
-
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: refresh
-
-spring:
-  application:
-    name: config-client
-  cloud:
-    config:
-      #分支
-      label: master
-      #环境
-      profile: dev
-      #configserver的地址
-      uri: http://localhost:6061/
-#  config: classpath:logback-boot.xml
+#
+    ##
+    ##management:
+    ##  endpoints:
+    ##    web:
+    ##      exposure:
+    ##        include: refresh
+    ##
+    ##spring:
+    ##          ##  application:
+    ##          ##    name: config-client
+    ##          ##  cloud:
+    ##          ##    config:
+    ##          ##      #分支
+    ##          ##      label: master
+    ##          ##      #环境
+    ##          ##      profile: dev
+    ##          ##      #configserver的地址
+  ##        ##      uri: http://localhost:6061/
+  ##        ###  config: classpath:logback-boot.xml

@@ -1,12 +1,12 @@
 
-spring:
-  application:
-    name: application
-  cloud:
-    config:
-      #分支
-      label: master
-      #环境
-      profile: dev
-      #configserver的地址
-      uri: http://localhost:6061/
+#spring:
+#  application:
+#    name: application
+#  cloud:
+#    config:
+#      #分支
+#      label: master
+#      #环境
+#      profile: dev
+#      #configserver的地址
+#      uri: http://localhost:6061/

@@ -1,5 +1,5 @@
 server:
-  port: 6061
+  port: 6066
 
 spring:
   application:
@@ -14,8 +14,8 @@ zuul:
     EUREKA-CLIENT:
       path: /client/**
       serverId: EUREKA-CLIENT
-  ignored-services: "*"
-  prefix: /pws
+#  ignored-services: "*"
+#  prefix: /pws
 
 
 eureka:

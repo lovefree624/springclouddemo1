@@ -26,6 +26,7 @@ import java.util.HashMap;
  */
 @Service
 public class SumerServiceImpl implements SumerService {
+
     @Autowired
     private RestTemplate restTemplate;
     String url = "http://eureka-client/getOne";
@@ -37,7 +38,7 @@ public class SumerServiceImpl implements SumerService {
         URI uri = encode.toUri();
         HashMap<String, String> stringStringHashMap = new HashMap<>();
         stringStringHashMap.put("id",name);
-        return restTemplate.postForObject(url+"?id={id}",null,String.class,stringStringHashMap);
+        return restTemplate.postForObject(uri+"?id={id}",null,String.class,stringStringHashMap);
 //        return restTemplate.postForObject(uri,null,String.class);
 //        return restTemplate.postForObject(url+"?id={1}",null,String.class,name);
 //        return restTemplate.getForObject("http://eureka-client/getOne?id="+name,String.class);

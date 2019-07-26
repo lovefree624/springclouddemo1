@@ -8,7 +8,6 @@
 package com.example.eurekasumer1.hystrix;
 
 import com.example.eurekasumer1.hystrixservice.SumerFeignService;
-import com.example.eurekasumer1.service.SumerService;
 import feign.hystrix.FallbackFactory;
 import org.springframework.stereotype.Component;
 
@@ -25,16 +24,8 @@ public class ServiceFallBackFactory implements FallbackFactory<SumerFeignService
         return new SumerFeignService() {
             @Override
             public String sumer(String id) {
-                return  "调用接口异常，参数："+id+"无法从其他模块中获取数据";
+                return "调用接口异常，参数：" + id + "无法从其他模块中获取数据fallback";
             }
         };
-
-
-//                new SumerService() {
-//            @Override
-//            public String sumer(String name) {
-//                return "调用接口异常，参数："+name+"无法从其他模块中获取数据";
-//            }
-//        };
     }
 }

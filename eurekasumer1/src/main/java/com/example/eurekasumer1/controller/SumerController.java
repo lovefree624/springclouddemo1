@@ -8,12 +8,11 @@
 package com.example.eurekasumer1.controller;
 
 import com.example.eurekasumer1.hystrixservice.SumerFeignService;
+import com.example.eurekasumer1.service.SumerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -27,15 +26,19 @@ import javax.annotation.Resource;
 @RefreshScope
 public class SumerController {
 
-    @Value("${pws.name}")
-    private String name1;
 
     @Resource
     SumerFeignService sumerFeignService;
+    @Resource
+    SumerService sumerService;
 
     @RequestMapping(value = "/getUser",method = RequestMethod.POST)
     public String sumer12(String name){
-        System.out.println(name1);
         return sumerFeignService.sumer(name);
+    }
+
+    @RequestMapping(value = "/getName",method = RequestMethod.POST)
+    public String sumer(String id){
+        return sumerService.sumer(id);
     }
 }

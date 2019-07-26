@@ -29,4 +29,5 @@ public class GetConfigServer {
     public String getDatasource() {
         return datasource;
     }
+
 }

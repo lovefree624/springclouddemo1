@@ -1,0 +1,16 @@
+server:
+  port: 7071
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: eureka-sumer2
+
+spring:
+  application:
+    name: eureka-sumer2
+  cloud:
+    bus:
+      trace:
+        enabled: true
+      enabled: true

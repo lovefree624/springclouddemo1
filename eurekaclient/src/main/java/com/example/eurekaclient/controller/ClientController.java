@@ -8,11 +8,14 @@
 package com.example.eurekaclient.controller;
 
 import com.example.eurekaclient.service.ClientService;
+import com.example.eurekacommon.entity.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * @author panwensheng
@@ -29,5 +32,15 @@ public class ClientController {
     @RequestMapping(value = "getOne",method = RequestMethod.POST)
     public String getOne(@RequestParam String id){
         return  clientService.getOne(id);
+    }
+
+    @RequestMapping(value = "/getOnePerson",method = RequestMethod.GET)
+    public Person getOnePerson(@RequestParam String id){
+        return clientService.getOnePerson(id);
+    }
+
+    @RequestMapping(value = "/getList",method = RequestMethod.GET)
+    public List<Person> getList(){
+        return clientService.getList();
     }
 }

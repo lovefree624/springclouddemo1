@@ -1,0 +1,27 @@
+info:
+  app.name: zte-interface-service
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+
+pws:
+  name: pws11WE13423423
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
+
+spring:
+  application:
+    name: config-client
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eurekaserver1.com:8081/eureka/,http://eurekaserver2.com:8082/eureka/
