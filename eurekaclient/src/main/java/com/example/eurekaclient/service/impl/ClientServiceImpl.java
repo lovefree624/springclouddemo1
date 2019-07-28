@@ -7,12 +7,15 @@
  */
 package com.example.eurekaclient.service.impl;
 
+import com.baomidou.dynamic.datasource.annotation.DS;
+import com.example.eurekaclient.mapper.data1.PersonMapper;
 import com.example.eurekaclient.service.ClientService;
 import com.example.eurekacommon.entity.Person;
+import com.example.eurekacommon.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -24,26 +27,38 @@ import java.util.List;
 @Service
 public class ClientServiceImpl implements ClientService {
 
-    @Autowired
-//    PersonMapper personMapper;
+    @Resource
+    PersonMapper personMapper;
 
-    @Value("${server.port}")
-    private String port;
+//    @Value("${server.port}")
+//    private String port;
+
+//    @Override
+//    public String getOne(String id) {
+//        return "接口是："+port+",参数是："+id;
+//    }
 
     @Override
-    public String getOne(String id) {
-        return "接口是："+port+",参数是："+id;
+    @DS("one")
+    public User getOnePerson(String id) {
+        return personMapper.getOnePerson(id);
     }
 
     @Override
-    public Person getOnePerson(String id) {
-//        return personMapper.getOnePerson(id);
-        return null;
+    @DS("two")
+    public List<User> getList() {
+        return personMapper.getList();
     }
 
     @Override
-    public List<Person> getList() {
-//        return personMapper.getList();
-        return null;
+    @DS("three")
+    public User getOneUser(String id) {
+        return personMapper.getOneUser(id);
+    }
+
+    @Override
+    @DS("three")
+    public List<User> getListUser() {
+        return personMapper.getListUser();
     }
 }

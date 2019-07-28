@@ -1,13 +1,13 @@
-package com.example.eurekaclient.service;
+package com.example.eurekaclient.mapper.data1;
 
 import com.example.eurekacommon.entity.Person;
 import com.example.eurekacommon.entity.User;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
-public interface ClientService {
-//    String getOne(String id);
-
+@Mapper
+public interface PersonMapper {
     User getOnePerson(String id);
 
     List<User> getList();

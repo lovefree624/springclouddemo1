@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.eurekaclient.mapper.PersonMapper">
-    <select id="getOnePerson" resultType="com.example.eurekacommon.entity.Person">
-        select * from person where id =#{id}
+<mapper namespace="com.example.eurekaclient.mapper.data1.PersonMapper">
+    <select id="getOnePerson" resultType="com.example.eurekacommon.entity.User">
+        select * from User where id =#{id}
     </select>
-    <select id="getList" resultType="com.example.eurekacommon.entity.Person">
+    <select id="getList" resultType="com.example.eurekacommon.entity.User">
         select *
-        from person
+        from User
+    </select>
+    <select id="getOneUser" resultType="com.example.eurekacommon.entity.User">
+        select *
+        from user
+        where id =#{id}
+    </select>
+    <select id="getListUser" resultType="com.example.eurekacommon.entity.User">
+        select *
+        from USER
     </select>
 </mapper>

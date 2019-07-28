@@ -9,6 +9,7 @@ package com.example.eurekaclient.controller;
 
 import com.example.eurekaclient.service.ClientService;
 import com.example.eurekacommon.entity.Person;
+import com.example.eurekacommon.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,18 +30,30 @@ public class ClientController {
     @Autowired
     ClientService clientService;
 
-    @RequestMapping(value = "getOne",method = RequestMethod.POST)
-    public String getOne(@RequestParam String id){
-        return  clientService.getOne(id);
-    }
+//    @RequestMapping(value = "getOne",method = RequestMethod.POST)
+//    public String getOne(@RequestParam String id){
+//        return  clientService.getOne(id);
+//    }
 
     @RequestMapping(value = "/getOnePerson",method = RequestMethod.GET)
-    public Person getOnePerson(@RequestParam String id){
+    public User getOnePerson(@RequestParam String id){
         return clientService.getOnePerson(id);
     }
 
     @RequestMapping(value = "/getList",method = RequestMethod.GET)
-    public List<Person> getList(){
+    public List<User> getList(){
         return clientService.getList();
     }
+
+
+    @RequestMapping(value = "/getOneUser",method = RequestMethod.GET)
+    public User getOneUser(@RequestParam String id){
+        return clientService.getOneUser(id);
+    }
+
+    @RequestMapping(value = "/getListUser",method = RequestMethod.GET)
+    public List<User> getListUser(){
+        return clientService.getListUser();
+    }
+
 }
